@@ -1,0 +1,39 @@
+.peg {
+  font-size: 15px;
+  color: #ffffff;
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+@mixin peg($color) {
+  background: radial-gradient(circle, lighten($color, 10%) 0%, $color 100%);
+  box-shadow: 0 0 15px $color;
+}
+
+.peg--active.peg--orange {
+  @include peg(#ff6000);
+}
+.peg--active.peg--red {
+  @include peg(red);
+}
+.peg--active.peg--blue {
+  @include peg(rgb(94, 200, 204));
+}
+.peg--active.peg--yellow {
+  @include peg(yellow);
+}
+.peg--active.peg--lime {
+  @include peg(lime);
+}
+
+.peg--active.peg--crazy {
+  @include peg(hotpink);
+}

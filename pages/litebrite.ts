@@ -1,6 +1,6 @@
-import React, {useState, useEffect } from "react";
-import Peg from "./Peg";
-import "../styles/litebrite.scss"
+import React, {useState, useEffect } from "react"
+import Peg from "../components/Peg"
+import styles from "../styles/Litebrite.module.scss"
 import router, { useRouter } from 'next/router'
 //import { useHistory } from 'react-router-dom'
 import { NextPage } from 'next'
@@ -9,7 +9,7 @@ import { NextPage } from 'next'
 //   userAgent?: string;
 // }
 
-const colors = ["red", "orange", "blue", "yellow", "lime", "hotpink"];
+const colors: string[] = ["red", "orange", "blue", "yellow", "lime", "hotpink"];
 
 export default (props) => {
 
@@ -26,13 +26,13 @@ export default (props) => {
 
   return (
     <div
-      className={`lite-brite ${
+      className={`styles.lite-brite ${
         props.classic ? " lite-brite--classic" : ""
       }`}
     >
-      <div className="lite-brite__lights">
+      <div className="styles.lite-brite__lights">
         {Array.from(new Array(props.rows)).map((_, x) => (
-          <div className="row" id={`row-${x}`} key={`row-${x}`}>
+          <div className={styles.row} id={`row-${x}`} key={`row-${x}`}>
             {Array.from(
               new Array(
                 props.classic
@@ -84,12 +84,12 @@ export default (props) => {
           </div>
         ))}
       </div>
-      <div className="light-brite__colors">
+      <div className="styles.light-brite__colors">
         {colors.map((color, i) => (
           <button
-          key={i} className={`color-picker color-picker--${color} ${
+          key={i} className={`styles.color-picker styles.color-picker--${color} ${
               color === selectedColor
-                ? " color-picker--active"
+                ? " styles.color-picker--active"
                 : ""
             }`}
             onClick={() => {
